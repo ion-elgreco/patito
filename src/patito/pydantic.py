@@ -758,15 +758,14 @@ class Model(BaseModel, metaclass=ModelMetaclass):
 
         elif field_type in {"integer", "number"}:
             # For integer and float types we must check if there are imposed bounds
-            
+
             lower = properties.get("minimum")
             upper = properties.get("maximum")
-            
+
             if lower is None:
                 lower = properties.get("exclusiveMinimum")
             if upper is None:
                 upper = properties.get("exclusiveMaximum")
-            
 
             # If the dtype is an unsigned integer type, we must return a positive value
             if "dtype" in properties:
